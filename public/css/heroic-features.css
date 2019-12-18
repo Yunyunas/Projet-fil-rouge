@@ -1,0 +1,71 @@
+/*!
+ * Start Bootstrap - Heroic Features (https://startbootstrap.com/template-overviews/heroic-features)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-heroic-features/blob/master/LICENSE)
+ */
+/* body {
+  padding-top: 56px;
+} */
+
+#logo {
+  width: 50%;
+  height: auto;
+}
+
+#socialmedia {
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+#rubriquebottom {
+  color: rgb(73, 71, 71);
+  border-bottom-right-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+  width: 160px !important;
+  height: auto !important;
+}
+
+#recherche {
+  border-bottom-left-radius: 0px !important;
+  border-top-left-radius: 0px !important;
+  width: 320px !important;
+}
+
+.custom-navbar {
+  height: 90px !important;
+}
+
+.btn-custom {
+  width: 120px !important;
+  height: auto !important;
+  margin-left: 5px;
+}
+
+#btn-ajouter-annonce {
+  margin-top: 30px;
+  margin-left: 175px;
+}
+
+#btn-ajouter-rubrique {
+  margin-top: 30px;
+  margin-left: 175px;
+}
+
+.choix-rubrique {
+border-bottom-left-radius: 32px !important;
+border-top-left-radius: 32px !important;
+border-bottom-right-radius: 5px !important;
+border-top-right-radius: 5px !important;
+height: 50px !important;
+}
+
+
+
+#error-connexion {
+  color:rgb(220, 53, 69);
+  margin-bottom: 30px;
+}
+
+.description-annonce {
+  height : 85px !important;
+}

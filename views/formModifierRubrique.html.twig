@@ -1,0 +1,39 @@
+  {% extends "layout.html.twig" %}
+	
+	{% block title %} <title>Modifier une rubrique</title> {% endblock %}
+
+    {% block content %}
+
+<link href="public/css/connexion.css" rel="stylesheet">
+    
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Modifier la rubrique {{libelle}} </h5>
+                        <form class="form-signin" method="post">
+                            <div class="form-label-group">
+                                <input type="text" id="inputLibelle" name="libelle_rubrique" class="form-control" placeholder="Libelle rubrique" required autofocus>
+                                <label for="inputLibelle">Nouveau libellé</label>
+                            </div>
+
+                            {# <div class="form-label-group">
+                                <input type="text" id="inputDescription" name="corps_rubrique" class="form-control" placeholder="Description" required>
+                                <label for="inputDescription">Description</label>
+                            </div> #}
+
+                            <hr class="my-4">
+
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Envoyer</button>
+                            <input type="hidden" name="action" value="modifierRubrique">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% endblock %}	

@@ -1,0 +1,52 @@
+{% extends "layout.html.twig" %}
+
+{% block title %} <title>Se connecter</title> {% endblock %}
+
+{% block content %}
+
+<link href="public/css/connexion.css" rel="stylesheet">
+    
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Se connecter</h5>
+                        <form class="form-signin" method="post">
+                            <div class="form-label-group">
+                                <input type="email" id="inputEmail" name="mail_utilisateur" class="form-control" placeholder="Email address" required autofocus>
+                                <label for="inputEmail">Adresse mail</label>
+                            </div>
+
+                            <div class="form-label-group">
+                                <input type="password" id="inputPassword" name="mdp_utilisateur" class="form-control" placeholder="Password" required>
+                                <label for="inputPassword">Mot de passe</label>
+                            </div>
+
+                            <p class="d-block text-center" id="error-connexion"> {{ message != '' ? message : '' }} </p>
+
+                            {# <div class="custom-control custom-checkbox mb-3">
+                                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                <label class="custom-control-label" for="customCheck1">Se souvenir de moi</label>
+                            </div> #}
+
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Se connecter</button>
+                            <input type="hidden" name="action" value="identifierUtilisateur">
+                            <a class="d-block text-center mt-2 " href="index.php?action=inscription">S'inscrire</a>
+                            <hr class="my-4">
+
+                            <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit">
+                                <i class="fab fa-google mr-2"></i>Se connecter avec Google</button>
+
+                            <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit">
+                            <i class="fab fa-facebook-f mr-2"></i>Se connecter avec Facebook</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% endblock %}	

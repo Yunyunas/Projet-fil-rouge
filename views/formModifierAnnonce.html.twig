@@ -1,0 +1,57 @@
+{% extends "layout.html.twig" %}
+	
+{% block title %} <title>Modifier une annonce</title> {% endblock %}
+
+{% block content %}
+
+<link href="public/css/connexion.css" rel="stylesheet">
+    
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Modifier l'annonce {{entete}}</h5>
+                        <form class="form-signin" method="post">
+                            <div class="form-group">
+                                <label for="">Rubrique</label>
+                                <select class="form-control choix-rubrique" name="rubrique">
+                                    {% for rub in rubrique %}
+                                    <option value="{{ rub.id }}">{{ rub.libelle }} </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <div class="form-label-group">
+                                <input type="text" id="inputEnTete" name="en_tete_annonce" 
+                                class="form-control" placeholder="en tete annonce" 
+                                value="{{ annonce.en_tete_annonce }}" autofocus>
+                                <label for="inputEnTete">Nouveau titre</label>
+                            </div>
+                            
+                            <div class="form-label-group">
+                                <input type="text" id="inputCorps" name="corps_annonce" 
+                                class="form-control description-annonce" placeholder="Corps annonce"
+                                value="{{ annonce.corps_annonce }}">
+                                <label for="inputCorps">Nouvelle description</label>
+                            </div>
+
+                            {# <div class="form-label-group">
+                                <input type="text" id="inputDescription" name="corps_rubrique" class="form-control" placeholder="Description" required>
+                                <label for="inputDescription">Description</label>
+                            </div> #}
+
+                            <hr class="my-4">
+
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Envoyer</button>
+                            <input type="hidden" name="action" value="modifierAnnonce">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% endblock %}	

@@ -1,0 +1,46 @@
+{% extends "layout.html.twig" %}
+
+{% block title %} <title> Accueil </title> {% endblock %}
+{% block content %}
+
+<body class="home">
+<!-- Page Content -->
+    <div class="container">
+
+<!-- Header -->
+        <header class="jumbotron my-4">
+            <h1 class="display-3">Accueil</h1>
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <br>            
+            <a href="index.php?action=afficherAnnoncesNouveautes&param=1&paramLibelle=Nouveautés" class="btn btn-danger btn-lg">Voir les nouveautés</a>
+        </header>
+
+        <div class="row text-center">
+
+        {% for a in annonce %}
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card h-100">
+                    <a href="?action=afficherUneAnnonce&paramEnTete={{a.entete}}&paramCorps={{a.corps}}&paramIdAnnonce={{a.id}}">
+                    <img class="card-img-top" src="public/images/article1.jpg" alt="">
+                    </a>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="?action=afficherUneAnnonce&paramEnTete={{a.entete}}&paramCorps={{a.corps}}&paramIdAnnonce={{a.id}}">{{a.entete}}</a>
+                        </h4>
+                        <p class="card-text">{{a.corps}}</p>
+                    </div>
+
+                    <div class="card-footer">
+                        <a href="?action=afficherUneAnnonce&paramEnTete={{a.entete}}&paramCorps={{a.corps}}&paramIdAnnonce={{a.id}}" class="btn btn-danger">Voir plus</a>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+
+        </div>
+    </div>
+</body>
+
+{% endblock %}

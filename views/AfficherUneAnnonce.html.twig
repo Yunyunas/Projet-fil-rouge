@@ -1,0 +1,64 @@
+{% extends "layout.html.twig" %}
+
+{% block title %} <title> Annonce {{paramEnTete}} </title> {% endblock %}
+{% block content %}
+
+<body>
+  <!-- Page Content -->
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-lg-3">
+            <h1 class="my-4">Atelier DVO</h1>
+            <div class="list-group">
+                <a href="index.php?action=afficherAnnoncesNouveautes&param=1&paramLibelle=Nouveautés" class="list-group-item">Nouveautés</a>
+                
+                {% for rub in rubrique %}
+
+                <a href="?action=afficherAnnonces&param={{rub.id}}&paramLibelle={{rub.libelle}}" 
+                class="list-group-item {{annonce.libelle_rubrique != rub.libelle ? '' : 'active'}}">{{rub.libelle}}</a>
+                {# <a href="?action=afficherAnnonces&param={{rub.id}}&paramLibelle={{rub.libelle}}" 
+                class="list-group-item">{{rub.libelle}}</a> #}
+   
+                {% endfor %}
+            </div>
+        </div>
+      <!-- /.col-lg-3 -->
+
+        <div class="col-lg-9">
+
+            <div class="card mt-4">
+                <img class="card-img-top img-fluid" src="public/images/article1.jpg" alt="">
+                <div class="card-body">
+                    <h3 class="card-title">{{annonce.en_tete_annonce}}</h3>
+                    <h4>100.00 €</h4>
+                    {# <p class="card-text"> info autre </p> #}
+                </div>
+            </div>
+        <!-- /.card -->
+
+        <div class="card card-outline-secondary my-4">
+          <div class="card-header">
+            Détail du produit
+          </div>
+          <div class="card-body">
+
+            <p>{{annonce.corps_annonce}}</p>
+            <small class="text-muted">Annonce déposée par {{annonce.prenom_utilisateur}} {{annonce.nom_utilisateur}} le {{annonce.date_depot}}</small>
+            <hr>
+
+            <a href="#" class="btn btn-danger">Acheter</a>
+          </div>
+        </div>
+        <!-- /.card -->
+      </div>
+      <!-- /.col-lg-9 -->
+    </div>
+  </div>
+  <!-- /.container -->
+
+</body>
+
+
+{% endblock %}

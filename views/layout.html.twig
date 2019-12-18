@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="pièce unique en lave émaillée : AUZERS">
+	<meta name="keywords" content="émaux sur lave, émaux, lave émaillée, lave, volvic, cantal, plaque funéraire, bijoux,
+	      artisan d'art, décoration, signalétique, tables">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href="public/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="public/css/heroic-features.css" rel="stylesheet">
+	
+	{% block title %}{% endblock %}
+
+</head>
+
+<body>
+<!-- Header + menu -->
+    <header>
+        <nav class="navbar navbar-expand-xl navbar-dark bg-dark custom-navbar">
+            <div class="container">
+                <a class="navbar-brand" href="index.php">
+                    <img src="public/images/logook.png" alt="Logo Emaux Sur Lave Atelier DVO" id="logo">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <form method="POST" class="form-inline my-2 my-lg-0">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="btn btn-light btn-rubrique" id="rubriquebottom" href="index.php?action=afficherRubriques">
+                                    {{session.utilisateur.admin != 1 ? 'Rubriques' : 'Gérer les rubriques'}}
+                                </a>
+                        
+                            </li>
+
+                            <li class="nav-item">
+                                <input class="form-control mr-sm-2" type="search" id="recherche" name="recherche" placeholder="Rechercher..." aria-label="Search">
+                            </li>
+                        </ul>
+                    </form>
+
+                    <ul class="navbar-nav ml-auto">
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                        
+                            <li class="nav-item">
+                                <a class="btn btn-secondary btn-custom" href="index.php?action=inscription" style="visibility:{{ session.utilisateur.id_utilisateur != '' ? 'hidden' : 'visible' }}">
+                                    S'inscrire
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="btn btn-secondary btn-custom" href={{session.utilisateur.id_utilisateur != '' ? 'index.php?action=deconnexion' : 'index.php?action=connexion'}}>
+                                    {{session.utilisateur.id_utilisateur != '' ? 'Deconnexion' : 'Se connecter'}}
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="btn btn-danger btn-custom" href="index.php?action=compteUtilisateur" style="visibility:{{ session.utilisateur.id_utilisateur != '' ? 'visible' : 'hidden' }}">
+                                    Mon compte
+                                </a>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <div class="col-md-2">
+                </div>
+
+                <div class="collapse navbar-collapse col-md-8" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a  class="nav-link active" href="index.php?action=afficherAnnoncesNouveautes&param=1&paramLibelle=Nouveautés">NOUVEAUTES</a>
+                        </li>
+
+                    {% for rub in rubrique %}
+
+                        <li class="nav-item">   
+                            <a  class="nav-link" href="?action=afficherAnnonces&param={{rub.id}}&paramLibelle={{rub.libelle}}">
+                                {{rub.libelle|upper}}
+                            </a>
+                        </li>
+
+                    {% endfor %}
+                        {# <li class="nav-item"> 
+                            <a class="nav-link" href="index.php?action=afficherAnnonces&param=3&paramLibelle=Bijoux">BIJOUX</a> 
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?action=signaletique">SIGNALETIQUE</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?action=tables">TABLES</a> 
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?action=funeraire">FUNERAIRE</a> 
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?action=accessoires">ACCESSOIRES</a>
+                        </li> #}
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                </div>
+            </div>
+        </nav>
+    </header>
+
+{% block content %}{% endblock %}
+
+    <section>
+        <nav class="socialmedia text-center" id="socialmedia">
+            <a href="https://www.facebook.com/atelier.dvo/" target="_blank"> <img src="public/images/facebook.png" alt="facebook"></a> 
+            <a href="https://www.instagram.com/?hl=fr" target="_blank"> <img src="public/images/insta.png" alt="Instagram"></a>
+            <a href="https://twitter.com/" target="_blank"> <img src="public/images/twitter.png" alt="twitter"></a>
+            <a href="https://fr.linkedin.com/" target="_blank"> <img src="public/images/linkedin.png" alt="Linkedin"></a>
+        </nav>
+    </section>
+
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <nav class="bottomlinkt">
+                <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+                <!-- <a href="mentionslegales.php" target="_blank"> Mentions légales</a> 
+                <a href="politiqueconfidentialite.php" target="_blank"> Politique de confidentialité</a> 
+                <a href="gestioncookies.php" target="_blank"> Gestion de cookies</a> -->
+            </nav>
+        </div>
+    </footer>	
+
+    <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
